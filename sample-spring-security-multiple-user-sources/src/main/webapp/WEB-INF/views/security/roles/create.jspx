@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_example_model_security_Authority" modelAttribute="authority" path="/security/roles" render="${empty dependencies}" z="SLUv3rUs0igs1cxaQzX7qIkJMZ0=">
+        <field:input field="roleId" id="c_com_example_model_security_Authority_roleId" max="10" min="8" required="true" z="ojkhkGzEGGt51FwehX2ZG6FxlL4="/>
+        <field:textarea field="realAuthority" id="c_com_example_model_security_Authority_realAuthority" required="true" z="hDC/bJ4weRjIRyUWLmUAVg11hrM="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_example_model_security_Authority" render="${not empty dependencies}" z="BbcZzzj22LNEJUbZIWJCpRVNnfE="/>
+</div>

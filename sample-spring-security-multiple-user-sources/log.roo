@@ -1,0 +1,27 @@
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-06-27 14:43:35
+project --topLevelPackage com.example --projectName test-login --java 6 --packaging JAR
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-06-27 14:43:41
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-06-27 14:44:39
+jpa setup --database MYSQL --provider HIBERNATE --databaseName test-login --userName root --password password
+entity jpa --class ~.model.security.Principal --table security_principals --testAutomatically 
+field string --fieldName username --notNull --sizeMax 50 --sizeMin 3
+field string --fieldName password --notNull --sizeMax 50 --sizeMin 3
+field boolean --fieldName enabled 
+perform tests
+entity jpa --class ~.model.security.Authority --table security_authorities --testAutomatically 
+field string --fieldName roleId --notNull --sizeMax 10 --sizeMin 8
+field string --fieldName authority --notNull --sizeMax 50 --sizeMin 8
+perform tests
+entity jpa --class ~.model.security.AuthorityPrincipalAssignment --table security_role_assignments --testAutomatically 
+field reference --fieldName username --type ~.model.security.Principal
+field reference --fieldName roleId --type ~.model.security.Authority
+perform tests
+hint
+web mvc setup
+web mvc scaffold --class ~.web.security.UserController --backingType ~.model.security.Principal --path /security/users
+web mvc scaffold --class ~.web.security.RoleController --backingType ~.model.security.Authority --path /security/roles
+web mvc scaffold --class ~.web.security.RoleMappingController --backingType ~.model.security.AuthorityPrincipalAssignment --path /security/assignments
+perform tests
+security setup
+logging setup --level DEBUG --package SECURITY
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-06-27 17:07:38
