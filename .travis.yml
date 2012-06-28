@@ -2,3 +2,8 @@ language: java
 jdk:
   - openjdk7
   - openjdk6
+  - oraclejdk7
+
+# .travis.yml
+before_script:
+  - mysql -e 'create database test-login;'
