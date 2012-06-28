@@ -6,4 +6,4 @@ jdk:
 
 # .travis.yml
 before_script:
-  - mysql -e 'create database test-login;'
+  - mysql -e 'create database myapp_test;'
